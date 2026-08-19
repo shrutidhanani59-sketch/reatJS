@@ -1,0 +1,40 @@
+.products {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.product1 {
+  background-color: aliceblue;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 12px rgb(192, 187, 187);
+  text-align: center;
+}
+
+.product1 h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.product1 h2 {
+  margin: 5px 0 15px;
+}
+
+.product1 img {
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+}
+
+.product1 h4 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.product1 h5 {
+  margin: 5px 0;
+  font-size: 16px;
+}

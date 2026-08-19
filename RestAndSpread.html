@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Spread
+
+        const arr=[11,12,13,14];
+        console.log(...arr);
+
+        const arr2=[...arr , 78,12];
+        console.log(...arr2);
+        
+
+        let obj = {
+            fname : "shruti",
+            lname : "dhanani",
+        }
+        let student = {
+            ...obj,
+            age : 10,
+        }
+        console.log(student);
+        
+        // Rest
+
+        function add(...restdata){
+            var sum = 0;
+            for (const element of restdata) {
+               sum = sum+element;
+            }
+            return sum;
+        }
+        console.log(add(10,12,45));
+        
+
+
+        
+
+        
+    </script>
+</body>
+</html>
