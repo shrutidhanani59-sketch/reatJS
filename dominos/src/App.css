@@ -1,0 +1,393 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    height: 100vh;
+    width: 210px;
+
+    background: linear-gradient(180deg, #ffffff, #f8f9fa);
+
+    border-right: 1px solid #eeeeee;
+
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.08);
+
+    padding: 15px 12px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Logo */
+
+.logo-box {
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    width: 150px;
+    height: 85px;
+
+    object-fit: contain;
+}
+
+
+/* Menu */
+
+.menu {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.menu li {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 0 14px;
+
+    margin: 8px 0;
+
+    border-radius: 12px;
+
+    color: #444;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Icon */
+
+.menu li i {
+    width: 22px;
+
+    text-align: center;
+
+    color: #e31837;
+
+    font-size: 16px;
+}
+
+
+/* Hover */
+
+.menu li:hover {
+    background: #fff0f2;
+
+    color: #e31837;
+
+    transform: translateX(4px);
+}
+
+
+/* Active */
+
+.menu li.active {
+    background: linear-gradient(
+        135deg,
+        #e31837,
+        #c8102e
+    );
+
+    color: white;
+
+    box-shadow: 0 5px 12px rgba(227, 24, 55, 0.25);
+}
+
+.menu li.active i {
+    color: white;
+}
+
+
+/* Bottom */
+
+.bottom-menu {
+    margin-top: auto;
+
+    border-top: 1px solid #eeeeee;
+
+    padding-top: 15px;
+}
+
+.bottom-menu div {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 14px;
+
+    margin: 5px 0;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    color: #555;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.bottom-menu div i {
+    color: #e31837;
+}
+
+.bottom-menu div:hover {
+    background: #f7bdc4;
+    color: #e31837;
+}
+
+.main {
+    margin-left: 210px;
+    min-height: 100vh;
+
+    background: #fafafa;
+
+    padding: 50px;
+}
+
+
+/* Main Pizza Card */
+
+.pizza-page {
+    max-width: 1100px;
+    min-height: 600px;
+
+    margin: auto;
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 70px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Image */
+
+.pizza-image-box {
+    width: 50%;
+    height: 480px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    background: #f5f5f5;
+}
+
+.pizza-image-box img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.4s;
+}
+
+.pizza-image-box img:hover {
+    transform: scale(1.05);
+}
+
+
+/* Details */
+
+.pizza-details {
+    width: 50%;
+}
+
+.category {
+    color: #e31837;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+.pizza-details h1 {
+    font-size: 45px;
+
+    margin: 12px 0;
+
+    color: #222;
+}
+
+
+.rating {
+    color: #ffb000;
+
+    font-size: 16px;
+
+    margin-bottom: 20px;
+}
+
+.rating span {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+.pizza-details h2 {
+    font-size: 32px;
+
+    color: #e31837;
+
+    margin-bottom: 18px;
+}
+
+
+/* Description */
+
+.description {
+    color: #666;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    max-width: 500px;
+}
+
+
+/* Info */
+
+.pizza-info {
+    display: flex;
+
+    gap: 15px;
+
+    margin: 25px 0;
+}
+
+.pizza-info div {
+    background: #fff3f4;
+
+    padding: 12px 16px;
+
+    border-radius: 10px;
+
+    color: #444;
+
+    font-size: 13px;
+}
+
+.pizza-info i {
+    color: #e31837;
+
+    margin-right: 7px;
+}
+
+
+/* Quantity */
+
+.quantity {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 22px;
+}
+
+.quantity button {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #eeeeee;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.quantity span {
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+/* Order Button */
+
+.order-btn {
+    width: 100%;
+
+    max-width: 400px;
+
+    height: 55px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #e31837,
+        #c8102e
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(227, 24, 55, 0.25);
+
+    transition: 0.3s;
+}
+
+.order-btn i {
+    margin-right: 10px;
+}
+
+.order-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(227, 24, 55, 0.35);
+}
