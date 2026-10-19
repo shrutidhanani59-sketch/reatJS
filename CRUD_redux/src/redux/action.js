@@ -4,10 +4,10 @@ export const addProduct = (product)=>{
         data : product
     }
 }
-export const updateProduct = (_)=>{
+export const updateProduct = (product)=>{
     return{
         type : "UPDATE_PRODUCT",
-        data : _
+        data : product
     }
 }
 export const deleteProduct = (id)=>{

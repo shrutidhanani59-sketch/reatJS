@@ -52,11 +52,19 @@ const Reducer = (state = value , action)=>{
     
         case "UPDATE_PRODUCT":
             
-            break;
+           return{
+            ...state , product: state.product.map((element)=>{
+              return ((element.id === action.data.id) ? action.data : element)
+            })
+           }
     
         case "DELETE_PRODUCT":
             
-            break;
+           return{
+            ...state, product: state.product.filter((element)=>{
+              return element.id !== action.data
+            })
+           }
     
         default:
             return {...state}

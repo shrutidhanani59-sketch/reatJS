@@ -1,23 +1,36 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
-import { addProduct } from "./redux/action"
+import { addProduct , deleteProduct, updateProduct } from "./redux/action"
 
 function App() {
   const data = useSelector((state) => {
     return state.product
   })
   const Dispatch = useDispatch();
-  const [title , useTitle] = useState("");
-  const [img , useImg] = useState("");
-  const [description , useDescription] = useState("");
-  const [price , usePrice] = useState("");
-  const [category , useCategory] = useState("");
+  const [title , setTitle] = useState("");
+  const [img , setImg] = useState("");
+  const [description , setDescription] = useState("");
+  const [price , setPrice] = useState("");
+  const [category , setCategory] = useState("");
+  const [id , setId] = useState(null)
 
   const handlesubmit = (e)=>{
     e.preventDefault();
-
-    Dispatch(addProduct({
+    if(title == "" || img == "" || description == "" || price == "" || category == ""){
+      return
+    }
+    if(id){
+      Dispatch(updateProduct({
+      id:id,
+      title:title,
+      img:img,
+      description:description,
+      price:price,
+      category:category
+    }))
+    }else{
+      Dispatch(addProduct({
       id:data.length+1,
       title:title,
       img:img,
@@ -25,6 +38,24 @@ function App() {
       price:price,
       category:category
     }))
+    }
+    setTitle("")
+    setImg("")
+    setDescription("")
+    setPrice("")
+    setCategory("")
+    setId(null)
+  }
+
+
+  const handleupdate = (element)=>{
+    setTitle(element.title)
+    setImg(element.img)
+    setDescription(element.description)
+    setPrice(element.price)
+    setCategory(element.category)
+    setId(element.id)
+
   }
   return (
     <>
@@ -33,7 +64,7 @@ function App() {
 
         {/* Form */}
         <div className="card shadow p-4 mb-5">
-          <h4 className="mb-3">Add Product</h4>
+          <h4 className="mb-3"> {(id) ? "Edit Product" :" Add Product"}</h4>
 
           <form>
             <div className="mb-3">
@@ -42,7 +73,8 @@ function App() {
                 type="text"
                 className="form-control"
                 placeholder="Enter title"
-                onChange={(e)=>useTitle(e.target.value)}
+                onChange={(e)=>setTitle(e.target.value)}
+                value={title}
               />
             </div>
 
@@ -52,7 +84,8 @@ function App() {
                 type="text"
                 className="form-control"
                 placeholder="Enter img url"
-                onChange={(e)=>useImg(e.target.value)}
+                onChange={(e)=>setImg(e.target.value)}
+                value={img}
               />
             </div>
 
@@ -62,7 +95,8 @@ function App() {
                 type="text"
                 className="form-control"
                 placeholder="Enter description"
-                onChange={(e)=>useDescription(e.target.value)}
+                onChange={(e)=>setDescription(e.target.value)}
+                value={description}
               />
             </div>
 
@@ -72,7 +106,8 @@ function App() {
                 type="text"
                 className="form-control"
                 placeholder="Enter price"
-                onChange={(e)=>usePrice(e.target.value)}
+                onChange={(e)=>setPrice(e.target.value)}
+                value={price}
               />
             </div>
 
@@ -82,12 +117,13 @@ function App() {
                 type="text"
                 className="form-control"
                 placeholder="Enter category"
-                onChange={(e)=>useCategory(e.target.value)}
+                onChange={(e)=>setCategory(e.target.value)}
+                value={category}
               />
             </div>
 
             <button type="submit" className="btn btn-primary" onClick={handlesubmit}>
-              Add Product
+             {(id) ? "Edit Product" :" Add Product"}
             </button>
           </form>
         </div>
@@ -112,7 +148,7 @@ function App() {
                 </thead>
 
                 <tbody>
-                  {data.map((element, index) => (
+                  {data.map((element) => (
                     <tr key={element.id}>
                       <td>{element.id}</td>
                       <td>{element.title}</td>
@@ -136,11 +172,15 @@ function App() {
                       </td>
 
                       <td>
-                        <button className="btn btn-warning btn-sm me-2">
+                        <button className="btn btn-warning btn-sm me-2"
+                        onClick={() => handleupdate(element)}
+                        >
                           Edit
                         </button>
 
-                        <button className="btn btn-danger btn-sm">
+                        <button className="btn btn-danger btn-sm"
+                        onClick={()=>Dispatch(deleteProduct(element.id))}
+                        >
                           Delete
                         </button>
                       </td>
